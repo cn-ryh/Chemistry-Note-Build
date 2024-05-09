@@ -1,7 +1,7 @@
 # Project Information
 site_name: Chemistry-Note
 site_description: Chemistry-Note 一个基于中国普通高中教科书的化学笔记项目🧪
-site_author: Chemistry-Note-Team
+site_author: Chemistry-Note
 site_url: https://note.cnryh.cn
 strict: false
 
@@ -11,7 +11,7 @@ repo_url: 'https://github.com/cn-ryh/Chemistry-Note-Build'
 edit_uri: 'https://note.cnryh.cn/edit-landing/?ref='
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2024 OI Wiki Team'
+copyright: 'Copyright &copy; 2023-2024 Chemistry-Note-Team all rights reserved.'
 
 # Contents
 nav:
