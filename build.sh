@@ -1,3 +1,5 @@
+git pull -q -s subtree docs docs
+
 echo "remove sites....."
 rm -rf ./site
 

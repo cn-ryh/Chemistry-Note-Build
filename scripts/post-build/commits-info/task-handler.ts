@@ -25,16 +25,15 @@ async function readCommitsLog(sourceFilePath: string): Promise<{ commitDate: Dat
              * <AuthorEmail
              * <...
              */
-            `git log --follow '--pretty=format:D %cD%n<%aE%n%w(0,2,2)%b' $FILENAME | sed -nE 's/^(D (.+)|(<.+)|  Co-Authored-By: .+?(<.+)>)/\\2\\3\\4/pi'`
+            `cd ../Chemistry-Note && git log --follow '--pretty=format:D >%cD%n<%aE%n%w(0,2,2)%b' "$FILENAME" | sed -nE 's/^(D (.+)|(<.+)|  Co-Authored-By: .+?(<.+)>)/\\2\\3\\4/pi'`
         ],
         {
             env: {
                 ...process.env,
-                FILENAME: `docs${sourceFilePath}`
+                FILENAME: `${sourceFilePath.substring(1)}`
             }
         }
     );
-    console.log(log);
     const commits = log.trim().slice(1).split("\n>");
     return commits.map(commit => {
         /**
@@ -90,7 +89,7 @@ export const taskHandler = new (class implements TaskHandler<AuthorUserMap> {
             $(".edit_history").setAttribute("href", `https://github.com/${GITHUB_REPO}/commits/master/docs${sourceFilePath}`);
 
             const commitsLog = await readCommitsLog(sourceFilePath);
-            console.log(commitsLog);
+            console.log(`${sourceFilePath}：\n`+JSON.stringify(commitsLog));
             // "本页面最近更新"
             const latestDate = new Date(
                 commitsLog.map(l => +new Date(l.commitDate)).reduce((latest, current) => Math.max(latest, current))

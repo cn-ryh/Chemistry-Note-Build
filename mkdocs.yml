@@ -87,10 +87,10 @@ extra:
   disqus: 'Chemistry-Note'
   pagetime: 'on'
   manifest: 'manifest.webmanifest'
-  githash: 'bd24c80'
+  githash: 'e58bb343'
 
 extra_css:
-  - '_static/css/extra.css?v=14'
+  - '_static/css/extra.css?v=13'
 
 # Extensions
 markdown_extensions:

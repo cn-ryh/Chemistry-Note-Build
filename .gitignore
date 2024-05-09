@@ -5,6 +5,6 @@ site/
 .DS_Store
 .env
 .well-known/
-node_modules/
+node_modules
 *.pyc
 docs-back
