@@ -1,4 +1,4 @@
-git pull -q -s subtree docs docs
+# Must run `git pull -q -s subtree docs docs` before 
 
 echo "remove sites....."
 rm -rf ./site
