@@ -8,4 +8,5 @@ site/
 node_modules
 *.pyc
 docs-back
-docs
+docs/
+docs-full/
