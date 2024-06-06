@@ -83,13 +83,11 @@ export const taskHandler = new (class implements TaskHandler<AuthorUserMap> {
         // The path of .md file relative to /docs, starting with a leading "/"
         console.log($(".page_edit_url").getAttribute("href"));
         const sourceFilePath = ($(".page_edit_url").getAttribute("href") || "").split("?ref=")[1];
-        console.log(sourceFilePath);
         if (sourceFilePath) {
             // Set link to git history
             $(".edit_history").setAttribute("href", `https://github.com/${GITHUB_REPO}/commits/master/docs${sourceFilePath}`);
 
             const commitsLog = await readCommitsLog(sourceFilePath);
-            console.log(`${sourceFilePath}：\n`+JSON.stringify(commitsLog));
             // "本页面最近更新"
             const latestDate = new Date(
                 commitsLog.map(l => +new Date(l.commitDate)).reduce((latest, current) => Math.max(latest, current))
